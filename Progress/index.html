@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parcel Tracking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            background-color: #fefefe;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .header {
+            padding: 20px;
+            background-color: #ff4267;
+            color: white;
+            text-align: center;
+            font-size: 30px;
+            position: relative;
+        }
+
+        .header .back {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            font-size: 16px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .tracking-number {
+            background-color: #ff4267;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .tracking-number h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .locations {
+            margin-top: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .parcel-status {
+            padding: 20px;
+        }
+
+        .status-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .status-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #33b6c3;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+        }
+
+        .status-icon.completed {
+            background-color: gray;
+        }
+
+        .status-info {
+            flex-grow: 1;
+        }
+
+        .status-title {
+            font-weight: bold;
+        }
+
+        .status-location {
+            color: gray;
+            font-size: 14px;
+        }
+
+        .status-date {
+            color: #555;
+            font-size: 14px;
+            margin-left: auto;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline:before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #33b6c3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <a href="#" class="back">&nbsp;</a>
+            Repair Progress
+        </div>
+
+        <div class="tracking-number">
+            <h1>#0201160454</h1>
+            <div class="locations">
+
+            </div>
+        </div>
+
+        <div class="parcel-status">
+            <div class="timeline">
+                <div class="status-item">
+                    <div class="status-icon completed">✔</div>
+                    <div class="status-info">
+                        <div class="status-title">Item Checked</div>
+                  </div>
+
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"></div>
+                    <div class="status-info">
+                        <div class="status-title">20%</div>
+
+                    </div>
+
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"></div>
+                    <div class="status-info">
+                        <div class="status-title">40%</div>
+  
+                    </div>
+
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"></div>
+                    <div class="status-info">
+                        <div class="status-title">60%</div>
+
+                    </div>
+
+                </div>
+                <div class="status-item">
+                    <div class="status-icon"></div>
+                    <div class="status-info">
+                        <div class="status-title">80%</div>
+
+                    </div>
+                    
+              </div>
+                <div class="status-item">
+                    <div class="status-icon"></div>
+                    <div class="status-info">
+                        <div class="status-title">100%</div>
+
+                    </div>
+                    
+              </div>
+                <div class="status-item">
+                    <div class="status-icon">✔</div>
+                    <div class="status-info">
+                        <div class="status-title">Item Ready</div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
