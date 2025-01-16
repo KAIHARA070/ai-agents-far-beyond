@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: #8ceb11; /* Warna pink tua */
+  height: 100vh;
+  width: 250px; /* Lebar sidebar */
+  color: white;
+  padding: 15px;
+  position: fixed; /* Agar sidebar tetap berada di sisi kiri */
+  top: 0;
+  left: 0;
+  overflow-y: auto; /* Tambahkan scroll jika konten terlalu panjang */
+}
+
+/* Header Sidebar */
+.sidebar-header {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #ff69b4; /* Warna pink cerah */
+  border-radius: 8px;
+}
+
+/* Navigasi */
+.nav {
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin-bottom: 10px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  color: white;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #e64b96; /* Warna hover */
+}
+
+.nav-link.active {
+  background-color: #ff69b4; /* Warna aktif */
+  font-weight: bold;
+}
+
+/* Ikon Navigasi */
+.nav-icon {
+  margin-right: 10px;
+}
+
+/* Content Area */
+.app-main {
+  margin-left: 250px; /* Ruang untuk sidebar */
+  padding: 20px;
+  background-color: #f8f9fa; /* Warna latar konten */
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  background-color: #ffffff; /* Putih untuk kontras */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+/* Footer */
+.app-footer {
+  background-color: #ffffff;
+  color: #6c757d;
+  padding: 10px 15px;
+  border-top: 1px solid #dee2e6;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 250px); /* Kurangi ukuran sidebar */
+  margin-left: 250px;
+}
+
+/* Table Styles */
+.table-striped {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table-striped th,
+.table-striped td {
+  text-align: left;
+  padding: 12px;
+}
+
+.table-striped thead {
+  background-color: rgb(221, 27, 117); /* Pink */
+  color: white;
+  border-radius: 8px;
+}
+
+.table-striped tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Card Styles */
+.card {
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  font-size: 18px;
+  color: rgb(221, 27, 117);
+  font-weight: bold;
+}
+
+/* Button and Link Adjustments */
+.nav-link.active .nav-icon,
+.nav-link.active p {
+  color: white !important;
+  font-weight: bold;
+}
+
+.nav-treeview .nav-link {
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+/* Charts */
+#visitors-chart,
+#sales-chart {
+  margin-top: 20px;
+  padding: 10px;
+}
+
+
+
+/* Class untuk Card */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tambahan efek bayangan */
+  padding: 1rem; /* Tambahan padding */
+}
+
+/* Utility Margin Bottom */
+.mb-4 {
+  margin-bottom: 1.0rem !important; /* 24px jika root font size 16px */
+}
+
+/* Grid Class untuk Kolom */
+.col-lg-6 {
+  flex: 0 0 auto;
+  width: 30%;
+}
+
+/* Media Query untuk layar besar (lg >= 992px) */
+@media (min-width: 992px) {
+  .col-lg-6 {
+    width: 100%;
+  }
+}
+
+/* Tambahan opsional: Styling untuk card-header dan card-body */
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  padding: 0.75rem 1rem;
+  font-weight: bold;
+}
+
+.card-body {
+  padding: 1rem;
+  color: #333;
+}

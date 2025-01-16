@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAPORAN KEROSAKAN PELANGGAN</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="LAPORAN_KEROSAKAN_PELANGGAN.css"> 
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="file"], input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #f44336; /* Red color for Back button */
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        LAPORAN KEROSAKAN PELANGGAN
+    </div>
+    <br><br/>
+    <div class="container">
+        <form id="LAPORAN_KEROSAKAN_PELANGGAN" method="POST" action="LAPORAN_KEROSAKAN_PELANGGAN_2.html">
+            <label for="full-name">NAMA PENUH</label> <br><br/>
+            <input type="text" id="full-name" name="NAMA PENUH" placeholder="Enter your full name" required>
+            <br><br/>
+            <label for="address">ALAMAT PENUH</label> <br><br/>
+            <input type="text" id="address" name="ALAMAT PENUH" placeholder="Enter your full address" required>
+            <br><br/>
+            <label for="ic-number">NO KAD PENGENALAN</label> <br><br/>
+            <input type="text" id="ic-number" name="NO KAD PENGENALAN" placeholder="Enter your ID number" required>
+            <br><br/>
+            <label for="phone1">NO TELEFON 1</label> <br><br/>
+            <input type="tel" id="phone1" name="NO TELEFON 1" placeholder="Enter your primary phone number" required>
+            <br><br/>
+            <label for="phone2">NO TELEFON 2</label> <br><br/>
+            <input type="tel" id="phone2" name="NO TELEFON 2" placeholder="Enter your secondary phone number (optional)">
+            <br><br/>
+            <label for="product-type">JENIS BARANG</label>
+            <br><br/>
+            <div class="checkbox-group">
+                <div>
+                    <input type="checkbox" id="washing-machine" name="product-type" value="MESIN BASUH">
+                    <label for="washing-machine">MESIN BASUH</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="dryer" name="product-type" value="DRYER">
+                    <label for="dryer">DRYER</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="fridge" name="product-type" value="PETI">
+                    <label for="fridge">PETI</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="freezer" name="product-type" value="FREEZER">
+                    <label for="freezer">FREEZER</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="tv" name="product-type" value="TV">
+                    <label for="tv">TV (50" KE ATAS SAHAJA)</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="aircond" name="product-type" value="AIRCOND">
+                    <label for="aircond">AIRCOND</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="other" name="product-type" value="OTHER">
+                    <label for="other">Other</label>
+                </div>
+            </div>
+            <br><br/>
+            <label for="brand-name">JENAMA BARANG</label> <br><br/>
+            <input type="text" id="brand-name" name="JENAMA BARANG" placeholder="Enter the product brand name" required>
+
+            <label for="model-name">MODEL BARANG</label> <br><br/>
+            <input type="text" id="model-name" name="MODEL BARANG" placeholder="Enter the product model name" required>
+            <br><br/>
+            <label for="problem">MASALAH YANG DIHADAPI</label> <br><br/>
+            <textarea id="problem" name="MASALAH YANG DIHADAPI" rows="4" placeholder="Describe the problem" required></textarea>
+            <br><br/>
+            <label for="damage-details">KETERANGAN KEROSAKAN</label> <br><br/>
+            <textarea id="damage-details" name="KETERANGAN KEROSAKAN" rows="4" placeholder="Provide further details about the damage" required></textarea>
+            <br><br/>
+            <label for="warranty-status">JAMINAN</label>
+            <br><br/>
+            <div>
+                <input type="radio" id="warranty-yes" name="JAMINAN" value="DALAM JAMINAN" required>
+                <label for="warranty-yes">DALAM JAMINAN</label>
+            </div>
+            <div>
+                <input type="radio" id="warranty-no" name="JAMINAN" value="TAMAT JAMINAN">
+                <label for="warranty-no">TAMAT JAMINAN</label>
+            </div>
+
+            <button type="submit" class="btn">NEXT</button>
+        </form>
+
+        <div id="message" style="display:none; margin-top: 20px; color: green; font-weight: bold;">Your report has been submitted successfully!</div>
+    </div>
+</body>
+</html>

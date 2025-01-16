@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Laporan Kerosakan</title>
+    <link rel="stylesheet" href="LAPORAN_KEROSAKAN_PELANGGAN.css"> <!-- Link ke fail CSS anda -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="file"], input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #f44336; /* Red color for Back button */
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        LAPORAN KEROSAKAN PELANGGAN
+    </div>
+
+    <div class="warning">
+        <strong>PERINGATAN:</strong> Sila pastikan gambar diambil dengan jelas dan mempunyai cop kedai serta tarikh pembelian di kad jaminan.
+    </div>
+
+    <div class="form-container">
+        <form id="LAPORAN_KEROSAKAN_PELANGGAN" action="LAPORAN_KEROSAKAN_PELANGGAN_2.html" method="POST" enctype="multipart/form-data" onsubmit="return validateFileSizeAndFormat()">
+        
+            <!-- Kad Jaminan Upload -->
+            <label for="kad-jaminan">KAD JAMINAN (Gambar, Saiz < 10 MB):</label>
+            <input type="file" id="kad-jaminan" name="kad_jaminan" accept="image/*" required>
+        
+            <!-- Resit Pembelian Upload -->
+            <label for="resit-pembelian">RESIT PEMBELIAN (Gambar, Saiz < 10 MB):</label>
+            <input type="file" id="resit-pembelian" name="resit_pembelian" accept="image/*" required>
+        
+            <!-- Video Barang Upload -->
+            <label for="video-barang">VIDEO BARANG (Saiz < 10 MB):</label>
+            <input type="file" id="video-barang" name="video_barang" accept="video/*" required>
+        
+            <!-- Catatan -->
+            <label for="catatan">CATATAN (Jika Perlu):</label>
+            <textarea id="catatan" name="catatan" rows="4" placeholder="Sertakan sebarang catatan jika perlu..."></textarea>
+        
+            <!-- Button Next -->
+            <button type="submit">NEXT</button>
+    
+            <!-- Button Back -->
+            <button type="button" class="back-button" onclick="window.history.back();">BACK</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateFileSizeAndFormat() {
+            console.log('validateFileSizeAndFormat called'); // Debugging line to ensure the function is called
+            
+            // Get file inputs
+            var kadJaminan = document.getElementById('kad-jaminan').files[0];
+            var resitPembelian = document.getElementById('resit-pembelian').files[0];
+            var videoBarang = document.getElementById('video-barang').files[0];
+            
+            // Maximum file size (10 MB in bytes)
+            var maxSize = 10 * 1024 * 1024; // 10 MB
+            
+            // Function to check file type and size
+            function checkFile(file, fileType) {
+                if (!file) return true; // if no file selected, skip validation
+
+                console.log("Fail yang dimuat naik: ", file.name); // Debugging line
+                console.log("Jenis fail: ", file.type); // Debugging line
+                console.log("Saiz fail: ", file.size); // Debugging line
+    
+                // Check file type
+                var validImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+                var validVideoTypes = ['video/mp4', 'video/avi', 'video/mkv'];
+                
+                if (fileType === 'image' && !validImageTypes.includes(file.type)) {
+                    alert("Format fail " + file.name + " tidak dibenarkan. Sila muat naik gambar (JPEG, PNG, GIF).");
+                    return false;
+                }
+                if (fileType === 'video' && !validVideoTypes.includes(file.type)) {
+                    alert("Format fail " + file.name + " tidak dibenarkan. Sila muat naik video (MP4, AVI, MKV).");
+                    return false;
+                }
+    
+                // Check file size
+                if (file.size > maxSize) {
+                    alert("Saiz fail " + file.name + " melebihi 10 MB.");
+                    return false;
+                }
+    
+                return true;
+            }
+            
+            // Validate Kad Jaminan (Image)
+            if (kadJaminan && !checkFile(kadJaminan, 'image')) return false;
+            // Validate Resit Pembelian (Image)
+            if (resitPembelian && !checkFile(resitPembelian, 'image')) return false;
+            // Validate Video Barang (Video)
+            if (videoBarang && !checkFile(videoBarang, 'video')) return false;
+            
+            // If all validations pass, allow form submission
+            return true;
+        }
+    </script>
+</body>
+</html>

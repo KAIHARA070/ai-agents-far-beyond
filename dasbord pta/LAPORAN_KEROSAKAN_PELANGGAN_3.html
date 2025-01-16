@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Laporan Kerosakan</title>
+    <link rel="stylesheet" href="LAPORAN_KEROSAKAN_PELANGGAN.css"> <!-- Link ke fail CSS anda -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .warning {
+            background-color: #ffcc00;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="file"], input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        textarea {
+            resize: vertical;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            background-color: #f44336; /* Red color for Back button */
+            margin-right: 10px;
+        }
+        .back-button:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        LAPORAN KEROSAKAN PELANGGAN
+    </div>
+
+    <div class="warning">
+        <strong>PERINGATAN:</strong> Sila pastikan gambar diambil dengan jelas 
+    </div>
+
+    <div class="form-container">
+        <form id="LAPORAN_KEROSAKAN_PELANGGAN" action="LAPORAN_KEROSAKAN_PELANGGAN.php" method="POST" enctype="multipart/form-data" onsubmit="return validateFileSize()">
+            <!-- Nombor Siri Barang -->
+            <label for="nombor-siri-barang">NOMBOR SIRI BARANG </label>
+            <input type="text" id="nombor-siri-barang" name="nombor_siri_barang" required>
+    
+            <!-- Kotak Upload File Gambar Max 10 MB -->
+            <label for="gambar-barang-file">GAMBAR BARANG (Saiz < 10 MB):</label>
+            <input type="file" id="gambar-barang-file" name="gambar_barang_file" accept="image/*" required>
+    
+            <!-- Button Submit -->
+            <button type="submit">SUBMIT</button>
+    
+            <!-- Button Back -->
+            <button type="button" class="back-button" onclick="window.history.back();">BACK</button>
+        </form>
+    </div>
+    
+    <script>
+        function validateFileSize() {
+            const maxSize = 10 * 1024 * 1024; // 10 MB dalam byte
+            const fileInput = document.getElementById('gambar-barang-file');
+    
+            // Pastikan fail dipilih
+            if (!fileInput.files || !fileInput.files[0]) {
+                alert("Sila pilih fail untuk dimuat naik.");
+                return false; // Halang penghantaran borang
+            }
+    
+            const file = fileInput.files[0];
+    
+            console.log("Fail dipilih:", file.name);
+            console.log("Saiz fail:", file.size);
+    
+            // Semak saiz fail
+            if (file.size > maxSize) {
+                alert("Saiz fail terlalu besar! Sila muat naik fail kurang daripada 10 MB.");
+                fileInput.value = ""; // Kosongkan input fail
+                return false; // Halang penghantaran borang
+            }
+    
+            // Semak format fail
+            const allowedImageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'];
+            const fileExtension = file.name.split('.').pop().toLowerCase();
+            
+            if (!allowedImageExtensions.includes(fileExtension)) {
+                alert("Format fail gambar tidak dibenarkan! Sila muat naik fail gambar seperti JPG, PNG, atau lain-lain.");
+                fileInput.value = ""; // Kosongkan input fail
+                return false; // Halang penghantaran borang
+            }
+    
+            // Jika semua pengesahan lulus
+            alert("Fail diterima. Borang akan dihantar.");
+            return true; // Benarkan penghantaran borang
+        }
+    </script>
+    
+    
+</body>
+</html>
