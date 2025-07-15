@@ -1,6 +1,6 @@
 # AI Agents: A Step Far Beyond
 
-<img width="375" height="288" alt="image" src="https://github.com/user-attachments/assets/7127c174-f83b-4aad-8d79-a0c416c52605" />
+<img width="480" height="292" alt="image" src="https://github.com/user-attachments/assets/d970d891-a987-4009-97d8-05fee4c75b8b" />
 
 ## 👋 Introduction
 
