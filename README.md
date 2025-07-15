@@ -1,5 +1,7 @@
 # AI Agents: A Step Far Beyond
 
+<img width="375" height="288" alt="image" src="https://github.com/user-attachments/assets/7127c174-f83b-4aad-8d79-a0c416c52605" />
+
 ## 👋 Introduction
 
 When chat-based ChatGPT was released to the public, it took us by
